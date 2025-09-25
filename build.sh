@@ -16,6 +16,8 @@ cd Gold_Site_Ecommerce/
 
 # Build image
 sudo docker build -t react-nginx-ansible -f golddockerfile .
+# docker login
+docker login -u hussi503 -p Hussi@503
 
 # Tag & push (make sure docker login is done before running)
 sudo docker tag react-nginx-ansible:latest hussi503/sagar-k-practice:latest
