@@ -5,9 +5,10 @@ if [ "$(sudo docker images -q)" ]; then
 fi
 
 # Clean working directory
-sudo rm -rf gold
-sudo mkdir gold
-cd gold/
+sudo rm -rf /home/ubuntu/gold
+sudo mkdir -p /home/ubuntu/gold
+sudo chown ubuntu:ubuntu /home/ubuntu/gold
+cd /home/ubuntu/gold/
 
 # Clone repo
 git clone https://github.com/Hussi503/Gold_Site_Ecommerce.git
@@ -19,6 +20,7 @@ sudo docker build -t react-nginx-ansible -f golddockerfile .
 # Tag & push (make sure docker login is done before running)
 sudo docker tag react-nginx-ansible:latest hussi503/sagar-k-practice:latest
 sudo docker push hussi503/sagar-k-practice:latest
+
 
 
 
