@@ -6,7 +6,7 @@ fi
 
 # Clean working directory
 sudo rm -rf gold
-mkdir gold
+sudo mkdir gold
 cd gold/
 
 # Clone repo
