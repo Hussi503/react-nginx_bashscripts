@@ -1,13 +1,12 @@
 #!/bin/bash
 # Delete existing images only if present
-if [ "$(sudo docker images -q)" ]; then
-  sudo docker rmi -f $(sudo docker images -q)
+if [ "$(docker images -q)" ]; then
+  docker rmi -f $(docker images -q)
 fi
 
 # Clean working directory
-sudo rm -rf /home/ubuntu/gold
-sudo mkdir -p /home/ubuntu/gold
-sudo chown ubuntu:ubuntu /home/ubuntu/gold
+rm -rf /home/ubuntu/gold
+mkdir -p /home/ubuntu/gold
 cd /home/ubuntu/gold/
 
 # Clone repo
@@ -15,13 +14,15 @@ git clone https://github.com/Hussi503/Gold_Site_Ecommerce.git
 cd Gold_Site_Ecommerce/
 
 # Build image
-sudo docker build -t react-nginx-ansible -f golddockerfile .
-# docker login
+docker build -t react-nginx-ansible -f golddockerfile .
+
+# Docker login
 docker login -u hussi503 -p Hussi@503
 
-# Tag & push (make sure docker login is done before running)
-sudo docker tag react-nginx-ansible:latest hussi503/sagar-k-practice:latest
-sudo docker push hussi503/sagar-k-practice:latest
+# Tag & push
+docker tag react-nginx-ansible:latest hussi503/sagar-k-practice:latest
+docker push hussi503/sagar-k-practice:latest
+
 
 
 
